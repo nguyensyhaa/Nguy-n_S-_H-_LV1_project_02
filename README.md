@@ -9,34 +9,41 @@ Hệ thống crawler hiệu năng cao để thu thập dữ liệu sản phẩm 
 *   **An toàn**: Lưu dữ liệu thành nhiều file nhỏ để tránh mất mát.
 *   **Sạch sẽ**: Code phân tách rõ ràng (Crawler, Pipeline, Utils), tuân thủ giao thức Data Engineering.
 
-## 🛠️ Cài đặt & Sử dụng
+## 🛠️ Cài đặt & Sử dụng chuyên nghiệp
 
-1.  **Cài đặt thư viện:**
+1.  **Cài đặt Crawl Tool:**
     ```bash
-    pip install -r requirements.txt
+    pip3 install -e .
     ```
 
-2.  **Cấu hình:**
-    *   Mở file `main.py` để trỏ đường dẫn file CSV đầu vào (`INPUT_CSV`).
+2.  **Sử dụng (Unified Command):**
 
-3.  **Chạy Crawler:**
-    ```bash
-    python3 main.py
-    ```
-    Hệ thống sẽ tự động quét và tải dữ liệu vào folder `data/`.
+    *   **🕷️ Chạy Crawl:**
+        ```bash
+        tiki-scraper crawl --input "/Users/syha/Downloads/products-0-200000.csv"
+        ```
 
-## 📂 Cấu trúc dự án
+    *   **🛡️ Kiểm tra Input:**
+        ```bash
+        tiki-scraper validate --input "/Users/syha/Downloads/products-0-200000.csv"
+        ```
+
+    *   **🧩 Gộp File:**
+        ```bash
+        tiki-scraper merge --data-dir "data" --output "all_products.json"
+        ```
+
+## 📂 Cấu trúc dự án (Refactored)
 ```
 .
-├── src/                # Source code chính
-│   ├── crawler.py      # Logic call API
-│   ├── pipeline.py     # Logic điều phối luồng
-│   └── utils.py        # Hàm tiện ích
-├── data/               # Chứa dữ liệu output (JSON)
-├── logs/               # Chứa log vận hành
-├── input/              # Chứa file CSV đầu vào
-├── main.py             # Entry point
-└── requirements.txt    # Danh sách thư viện
+├── src/
+│   └── tiki_scraper/
+│       ├── cli.py      # Unified CLI Entry point
+│       ├── crawler.py  # Core Async Logic
+│       └── ...
+├── pyproject.toml      # Modern Build Config
+├── setup.py            # Install Script
+└── ...
 ```
 
 ## ⚠️ Lưu ý

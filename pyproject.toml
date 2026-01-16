@@ -1,0 +1,22 @@
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tiki_scraper"
+version = "1.0.0"
+description = "High Performance Async Crawler for Tiki Products"
+authors = [
+  { name="Nguyen Sy Ha", email="syha@example.com" },
+]
+requires-python = ">=3.8"
+dependencies = [
+    "aiohttp",
+    "beautifulsoup4",
+    "lxml",
+    "pandas",
+]
+
+[project.scripts]
+tiki-scraper = "tiki_scraper.cli:main"
