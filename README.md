@@ -1,5 +1,5 @@
 
-# Tiki Scraper v2 - High Performance Crawler
+# Tiki Scraper - Final Version
 
 Hệ thống crawler hiệu năng cao để thu thập dữ liệu sản phẩm Tiki.
 
