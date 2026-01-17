@@ -67,3 +67,29 @@ def get_product_image_url(product_data):
         return product_data.get('thumbnail_url', '') or product_data.get('images', [{}])[0].get('base_url', '')
     except Exception:
         return ""
+
+async def send_discord_webhook(webhook_url, content=None, embed=None):
+    """
+    Gửi thông báo về Discord via Webhook (Hỗ trợ Embeds)
+    """
+    if not webhook_url:
+        return
+
+    import aiohttp
+    
+    payload = {
+        "username": "Tiki Scraper Bot 🤖",
+    }
+    
+    if content:
+        payload["content"] = content
+    if embed:
+        payload["embeds"] = [embed]
+    
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.post(webhook_url, json=payload, ssl=False) as response:
+                if response.status not in [200, 204]:
+                    print(f"⚠️ Discord Error: {response.status}")
+    except Exception as e:
+        print(f"⚠️ Discord Fail: {e}")

@@ -1,11 +1,9 @@
-
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -18,21 +16,35 @@ parts/
 sdist/
 var/
 wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
 # Virtual Environment
 venv/
+env/
+ENV/
+
+# PyCharm
+.idea/
+
+# Environment Variables
 .env
 
-# Data & Logs (Local only)
-data/
-logs/
-*.csv
-all_products.json
+# MacOS
+.DS_Store
 
-# IDE
-.idea/
-.vscode/
-*.swp
+# Logs
+logs/
+*.log
+
+# Project specific data
+data/*.json
+data/*.jsonl
+data_backup/
+tiki_products.csv
+failed_products.txt
+retry_input.csv
+temp_retry_input.csv
